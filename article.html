@@ -324,6 +324,80 @@
     </div>
   </section>
 
+  <!-- Fourth Infographic + Text Section (Image on left) -->
+  <section class="info-section" id="segregation">
+    <div class="info-image">
+      <img src="article4.jpg" alt="Global Warming Additional Infographic" />
+    </div>
+    <div class="info-text">
+      <h2>Segregation is Action. Sort Smart. Live Clean. ♻️</h2>
+      <p>
+        Proper waste segregation is key to reducing global warming. By sorting waste into recyclables, organics, and non-recyclables, 
+        we minimize landfill use, promote recycling, and cut down on methane emissions from decomposing waste. 
+        Simple habits like separating plastics, paper, and food scraps can lead to significant environmental benefits.
+      </p>
+      <p>
+        Every sorted item helps cool the planet.
+      </p>
+      <a href="#electricity2" class="btn">Choose the Right Bin 🗑</a>
+    </div>
+  </section>
+
+  <!-- Fifth Infographic + Text Section (Image on right) -->
+  <section class="info-section reverse" id="electricity2">
+    <div class="info-image">
+      <img src="article5.jpg" alt="Global Warming Solutions Infographic" />
+    </div>
+    <div class="info-text">
+      <h2>Plastic Free Starts With ME🙌🏻</h2>
+      <p>
+      Reducing plastic use helps protect our oceans, wildlife, and the planet. 
+      Simple steps—like bringing your own reusable bag, avoiding single-use plastics, 
+      and choosing sustainable alternatives—make a big difference.
+      </p>
+      <p>
+        Small smart choices, big impact for a cleaner planet!
+      </p>
+      <a href="#water2" class="btn">Choose What Truly Last 💪🏻</a>
+    </div>
+  </section>
+
+  <!-- Sixth Infographic + Text Section (Image on left) -->
+  <section class="info-section" id="water2">
+    <div class="info-image">
+      <img src="article6.jpg" alt="Global Warming Additional Infographic" />
+    </div>
+    <div class="info-text">
+      <h2>Green Choices Starts With Simple Swaps</h2>
+      <p>
+        Eco-friendly swaps are simple changes we make to replace everyday items with sustainable alternatives. 
+        From reusable bags and bottles to bamboo utensils and cotton straws, small swaps create a big impact.
+      </p>
+      <p>
+        Every choice counts toward a cleaner, plastic-free planet.
+      </p>
+      <a href="#electricity3" class="btn">🌍 Start Swapping</a>
+    </div>
+  </section>
+
+  <!-- Seventh Infographic + Text Section (Image on right) -->
+  <section class="info-section reverse" id="electricity3">
+    <div class="info-image">
+      <img src="article7.jpg" alt="Global Warming Solutions Infographic" />
+    </div>
+    <div class="info-text">
+      <h2>Nature Needs You</h2>
+      <p>
+      You can make a real difference! Plant trees, water plants,
+       and care for local wildlife. Every small action helps our planet thrive and stay green.
+      </p>
+      <p>
+        Join hands with nature and create a healthier, happier Earth.
+      </p>
+      <a href="#home" class="btn"> Help Nature🌲</a>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer>
     <div class="socials">
@@ -364,6 +438,25 @@
       setTimeout(() => {
         sections[0].classList.add('visible');
       }, 200);
+    });
+
+    // Enhanced smooth slide-down for button clicks (custom scroll with offset for navbar)
+    document.querySelectorAll('.btn').forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent default anchor jump
+        const targetId = button.getAttribute('href').substring(1); // Get target ID without #
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          const navbarHeight = document.querySelector('header').offsetHeight;
+          const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20; // Offset for sticky navbar and padding
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth' // Smooth slide-down animation
+          });
+          // Trigger visibility class if not already visible
+          targetSection.classList.add('visible');
+        }
+      });
     });
   </script>
 </body>
